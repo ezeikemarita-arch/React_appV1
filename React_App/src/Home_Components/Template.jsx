@@ -52,7 +52,7 @@ function Template() {
             <p className="text-gray-600">A clean and modern template for professionals.</p>
 
             <button className="mt-4 bg-[#080D2B] hover:bg- text-white font-bold py-2 px-12 rounded w-full">
-              <Link to="/templates">View more Template</Link>
+              <Link to="/templates?category=Modern">View more Templates</Link>
             </button>
           </div>
           
@@ -65,7 +65,7 @@ function Template() {
             <p className="text-gray-600">A professional template for career-focused individuals.</p>
 
             <button className="mt-4 bg-[#080D2B] hover:bg- text-white font-bold py-2 px-12 rounded w-full">
-              <Link to="/templates">View more Template</Link>
+              <Link to="/templates?category=Professional">View more Templates</Link>
             </button>
           </div>
 
@@ -78,7 +78,7 @@ function Template() {
             <p className="text-gray-600">A template designed for graduate and entry-level professionals.</p>
 
             <button className="mt-4 bg-[#080D2B] hover:bg- text-white font-bold py-2 px-12 rounded w-full">
-              <Link to="/templates">View more Template</Link>
+              <Link to="/templates?category=Graduate">View more Templates</Link>
             </button>
           </div>
         </article>

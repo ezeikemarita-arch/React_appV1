@@ -1,5 +1,5 @@
 
-function ModernTemplate() {
+function ModernTemplate1() {
   return (
     <div className="bg-white text-slate-900 transition-transform duration-500 hover:scale-105 w-[794px] min-h-[1123px] border border-gray-300 rounded-lg shadow-md">
       
@@ -207,4 +207,4 @@ function ModernTemplate() {
   );
 }
 
-export default ModernTemplate;
+export default ModernTemplate1;
