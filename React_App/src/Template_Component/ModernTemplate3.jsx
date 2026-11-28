@@ -1,6 +1,6 @@
 function ModernTemplate3() {
   return (
-    <div className="bg-white text-gray-900 transition-transform duration-500 hover:scale-105 w-[794px] min-h-[1123px]">
+    <div className="bg-white text-gray-900 w-[794px] min-h-[1123px]">
 
       {/* HEADER */}
       <header>

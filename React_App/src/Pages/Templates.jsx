@@ -100,7 +100,7 @@ function Templates(){
                   <div>
                     <div>
                       <h3 className="text-xl font-bold text-[#1E2F4F] mt-4 mb-2">Midnight Elegance</h3>
-                      <p className='text-sm text-gray-500'>A bold, sophisticated CV design featuring a deep navy header, structured sidebar, and balanced layout. Perfect for professionals who want a polished and confident first impression.</p>
+                      <p className='text-sm text-gray-500'></p>
                     </div>
                     
 
@@ -109,9 +109,13 @@ function Templates(){
                         <Link to="/templates">View preview</Link>
                       </button>
 
-                      <button className="mt-4 bg-[#080D2B] hover:bg-[#172B3A] text-white font-bold py-2 px-3 rounded w-full">
-                        <Link to="/templates">Use Template</Link>
-                      </button>
+                      <Link
+                        to="/cv-builder"
+                        state={{ selectedTemplate: "ModernTemplate1" }}
+                        className="mt-4 bg-[#080D2B] hover:bg-[#172B3A] text-white font-bold py-2 px-3 rounded w-full text-center"
+                      >
+                        Use Template
+                      </Link>
                     </div>
                   </div>
                 </div>
@@ -131,7 +135,7 @@ function Templates(){
                   <div>
                     <div>
                       <h3 className="text-xl font-bold text-[#1E2F4F] mt-4 mb-2">Classic Minimal</h3>
-                      <p className='text-sm text-gray-500'>A clean, refined CV design featuring a dark sidebar, elegant typography, a spacious white layout and subtle shadows Lorem ipsum dolor, sit ame. Perfect for professionals who appreciate simplicity and clarity.</p>
+                      <p className='text-sm text-gray-500'></p>
                     </div>
                     
 
@@ -140,9 +144,13 @@ function Templates(){
                         <Link to="/templates">View preview</Link>
                       </button>
 
-                      <button className="mt-4 bg-[#080D2B] hover:bg-[#172B3A] text-white font-bold py-2 px-3 rounded w-full">
-                        <Link to="/templates">Use Template</Link>
-                      </button>
+                      <Link
+                        to="/cv-builder"
+                        state={{ selectedTemplate: "ModernTemplate2" }}
+                        className="mt-4 bg-[#080D2B] hover:bg-[#172B3A] text-white font-bold py-2 px-3 rounded w-full text-center"
+                      >
+                        Use Template
+                      </Link>
                     </div>
                   </div>
                 </div>
@@ -161,7 +169,7 @@ function Templates(){
                   <div>
                     <div>
                       <h3 className="text-xl font-bold text-[#1E2F4F] mt-4 mb-2">Sage Elegance</h3>
-                      <p className='text-sm text-gray-500'>A fresh, minimalist CV design featuring soft sage-green accents, a balanced two-column layout, and clean typography. Perfect for professionals who prefer a modern, understated appearance.</p>
+                      <p className='text-sm text-gray-500'></p>
                     </div>
                     
 
@@ -170,9 +178,13 @@ function Templates(){
                         <Link to="/templates">View preview</Link>
                       </button>
 
-                      <button className="mt-4 bg-[#080D2B] hover:bg-[#172B3A] text-white font-bold py-2 px-3 rounded w-full">
-                        <Link to="/templates">Use Template</Link>
-                      </button>
+                      <Link
+                        to="/cv-builder"
+                        state={{ selectedTemplate: "ModernTemplate3" }}
+                        className="mt-4 bg-[#080D2B] hover:bg-[#172B3A] text-white font-bold py-2 px-3 rounded w-full text-center"
+                      >
+                        Use Template
+                      </Link>
                     </div>
                   </div>
                 </div>

@@ -1,5 +1,18 @@
 import Header from '../Home_Components/Header.jsx';
 import { useState } from 'react';
+import { useLocation } from "react-router-dom";
+import ModernTemplate1 from '../Template_Component/ModernTemplate1.jsx';
+import ModernTemplate2 from '../Template_Component/ModernTemplate2.jsx';
+import ModernTemplate3 from '../Template_Component/ModernTemplate3.jsx';
+
+import ProfessionalTemplate1 from '../Template_Component/ProfessionalTemplate1.jsx';
+import ProfessionalTemplate2 from '../Template_Component/ProfessionalTemplate2.jsx';
+import ProfessionalTemplate3 from '../Template_Component/ProfessionalTemplate3.jsx';
+
+import GraduateTemplate1 from '../Template_Component/GraduateTemplate1.jsx';
+import GraduateTemplate2 from '../Template_Component/GraduateTemplate2.jsx';
+import GraduateTemplate3 from '../Template_Component/GraduateTemplate3.jsx';
+
 
 function CVBuilder() {
   // Work Experience functionality
@@ -347,12 +360,19 @@ function CVBuilder() {
   const [professionalSummary, setProfessionalSummary] = useState("");
 
 
+
+
+  // Connecting templates to CV-builder
+  const locations = useLocation();
+  const selectedTemplate = locations.state?.selectedTemplate;
+
+
   return (
     <>
     <Header/>
     
-    <main className='bg-[#F3F4F6] flex justify-between align-start gap-8 min-h-screen px-6 py-5'>
-      <section className='w-full md:w-1/2 bg-white p-6 rounded-xl shadow-md mb-4'>
+    <main className='bg-[#F3F4F6] flex justify-between align-start gap-8 px-6 py-5'>
+      <section className='w-full md:w-1/2 bg-white min-h-screen p-6 rounded-xl shadow-md mb-4'>
         <div className='text-center'>
           <h1 className='text-gray-900 font-bold text-2xl p-3'>Build Your CV</h1>
           <p className='text-gray-600'>Fill in your details to create your professional CV</p>
@@ -620,13 +640,13 @@ function CVBuilder() {
                 onClick={() => removeEduction(education.id)}
                 className='text-red-500 hover:text-red-700 font-medium text-sm cursor-pointer mt-3'
                 >
-                  Remove Certification
+                  Remove Education
                 </button>
               </div>
             ))}
 
             <div className='flex justify-end'>
-              <button type='button' className='cursor-pointer' onClick={addEducation}>+ Add Another Certification</button>
+              <button type='button' className='cursor-pointer' onClick={addEducation}>+ Add Another Education</button>
             </div>
           </form>
         </div>
@@ -1427,40 +1447,40 @@ function CVBuilder() {
         
       
       {/* LIVE PEEVIEW SECTION */}
-      <section id='cv-preview' className='w-full md:w-1/2 bg-white p-6 rounded-xl shadow-md mb-4'>
+      {/* <section id='cv-preview' className='w-full md:w-1/2 bg-white p-6 rounded-xl shadow-md mb-4'>
         <div className='text-center'>
           <h1 className='text-gray-900 font-bold text-2xl p-3'>Live Preview</h1>
           <p className='text-gray-600'>Your CV preview will appear here</p>
-        </div>
+        </div> */}
 
 
 
 
         {/* personal info */}
-        <div className='mt-5'>
+        {/* <div className='mt-5'>
           <h2>{fullName || "Your Name"}</h2>
           <p>{email || "Your Email Address"} </p>
           <p>{phoneNumber || "Your Phone Number"}</p>
           <p>{location || "Your Location"}</p>
           <p>{linkedIn || "Your LinkedIn URL"}</p>
           <p>{portfolio || "Your portfolio URL"}</p>
-        </div>  
+        </div>   */}
 
 
 
 
 
         {/* Prof Summary */}
-        <div className='mt-10'>
+        {/* <div className='mt-10'>
           <h2>{professionalSummary || "Your Professional Summary"}</h2>
-        </div>
+        </div> */}
 
 
 
 
 
         {/* Education */}
-        <div className='mt-10'>
+        {/* <div className='mt-10'>
           {educations.map((education) => (
             <div key={education.id}>
               <h3>{education.name || "Your School Name"}</h3>
@@ -1470,14 +1490,14 @@ function CVBuilder() {
               <p>{education.graduationDate || "Graduation Date"}</p>
             </div>
           ))}
-        </div>
+        </div> */}
 
 
 
 
 
         {/* Work Experience */}
-        <div className='mt-10'>
+        {/* <div className='mt-10'>
           {workExperience.map((experience) => (
             <div key={experience.id}>
               <h3>{experience.jobTitle || "Your Job Title"}</h3>
@@ -1489,29 +1509,27 @@ function CVBuilder() {
               <p>{experience.description || "Responsibilities/Achievement"}</p>
             </div>
           ))}
-        </div>
+        </div> */}
 
 
 
         
 
         {/* skills */}
-        <div className='mt-10'>
-          {/* <h2>Skills</h2> */}
+        {/* <div className='mt-10'>
           <ul>
             {skills.map((skill, index) => (
               <li key={index}>{skill}</li>
             ))}
           </ul>
-        </div>
+        </div> */}
 
 
 
 
 
         {/* certification */}
-        <div className='mt-10'>
-          {/* <h2>Certification</h2> */}
+        {/* <div className='mt-10'>
           {certifications.map((certification) => (
             <div key={certification.id}>
               <h3>{certification.name || "Your Certification Name"}</h3>
@@ -1520,13 +1538,13 @@ function CVBuilder() {
               <p>{certification.credentialUrl || "Your Credential URL"}</p>
             </div>
           ))}
-        </div>
+        </div> */}
 
 
         
 
         {/* projects */}
-        <div className='mt-10'>
+        {/* <div className='mt-10'>
           {projects.map((project) => (
             <div key={project.id}>
               <h3>{project.name || "Your Project Name"}</h3>
@@ -1537,26 +1555,26 @@ function CVBuilder() {
               </a>
             </div>
           ))}
-        </div>
+        </div> */}
 
 
 
 
         {/* language */}
-        <div className='mt-10'>
+        {/* <div className='mt-10'>
           {languages.map((language) => (
             <div key={language.id}>
               <h3>{language.name || "Language Name"}</h3>
               <p>{language.proficiency || "Proficiency Level"}</p>
             </div>
           ))}
-        </div>
+        </div> */}
 
 
 
 
         {/* Volunteer Experience */}
-        <div className='mt-10'>
+        {/* <div className='mt-10'>
           {voluntaryExperiences.map((experience) => (
             <div key={experience.id}>
               <h3>{experience.name || "Your Organisation Name"}</h3>
@@ -1565,13 +1583,13 @@ function CVBuilder() {
               <p>{experience.startDate || "Start Date"} - {experience.endDate || "End Date"}</p>
             </div>
           ))}
-        </div>
+        </div> */}
 
 
 
 
         {/* Award & Achievement */}
-        <div className='mt-10'>
+        {/* <div className='mt-10'>
           {awards.map((award) => (
             <div key={award.id}>
               <h3>{award.name || "Award Name"}</h3>
@@ -1582,6 +1600,181 @@ function CVBuilder() {
             </div>
           ))}
         </div>
+      </section> */}
+
+
+
+
+
+
+      {/* LIVE PREVIEW SECTION */}
+      <section
+        id="cv-preview"
+        className="w-full md:w-1/2 bg-white p-6 rounded-xl shadow-md sticky top-6 self-start max-h-[calc(100vh-3rem)] overflow-y-auto">
+
+        <div className="text-center">
+          <h1 className="text-gray-900 font-bold text-2xl p-3">
+            Live Preview
+          </h1>
+          <p className="text-gray-600">
+            Your CV preview will appear here
+          </p>
+        </div>
+
+        {/* MODERN TEMPLATES */}
+        {selectedTemplate === "ModernTemplate1" && (
+          <div className="w-full flex justify-center">
+            <div className="origin-top scale-[0.80] mt-8">
+              <ModernTemplate1
+                formData={{
+                  fullName,
+                  email,
+                  phoneNumber,
+                  location,
+                  linkedIn,
+                  portfolio,
+                  professionalSummary,
+                  skills,
+                  educations,
+                  workExperience,
+                  certifications,
+                  projects,
+                  languages,
+                }}
+              />
+            </div>
+          </div>
+        )}
+
+
+        {selectedTemplate === "ModernTemplate2" && (
+          <div className="w-full flex justify-center">
+            <div className="origin-top scale-[0.80] mt-8">
+              <ModernTemplate2
+                formData={{
+                  fullName,
+                  email,
+                  phoneNumber,
+                  location,
+                  linkedIn,
+                  portfolio,
+                  professionalSummary,
+                  skills,
+                  educations,
+                  workExperience,
+                  certifications,
+                  projects,
+                  languages,
+                }}
+              />
+            </div>
+          </div>
+        )}
+
+
+        {selectedTemplate === "ModernTemplate3" && (
+          <div className="w-full flex justify-center">
+            <div className="origin-top scale-[0.80] mt-8">
+              <ModernTemplate3
+                formData={{
+                  fullName,
+                  email,
+                  phoneNumber,
+                  location,
+                  linkedIn,
+                  portfolio,
+                  professionalSummary,
+                  skills,
+                  educations,
+                  workExperience,
+                  certifications,
+                  projects,
+                  languages,
+                }}
+              />
+            </div>
+          </div>
+        )}
+
+
+        
+
+        {/* PROFESSIONAL TEMPLATES */}
+        {selectedTemplate === "ProfessionalTemplate1" && (
+          <div className="w-full flex justify-center">
+            <div className="origin-top scale-[0.80] mt-8">
+              <ProfessionalTemplate1
+                formData={{
+                  fullName,
+                  email,
+                  phoneNumber,
+                  location,
+                  linkedIn,
+                  portfolio,
+                  professionalSummary,
+                  skills,
+                  educations,
+                  workExperience,
+                  certifications,
+                  projects,
+                  languages,
+                }}
+              />
+            </div>
+          </div>
+        )}
+        
+
+
+        {selectedTemplate === "ProfessionalTemplate2" && (
+          <div className="w-full flex justify-center">
+            <div className="origin-top scale-[0.80] mt-8">
+              <ProfessionalTemplate2
+                formData={{
+                  fullName,
+                  email,
+                  phoneNumber,
+                  location,
+                  linkedIn,
+                  portfolio,
+                  professionalSummary,
+                  skills,
+                  educations,
+                  workExperience,
+                  certifications,
+                  projects,
+                  languages,
+                }}
+              />
+            </div>
+          </div>
+        )}
+
+
+
+        {selectedTemplate === "ProfessionalTemplate3" && (
+          <div className="w-full flex justify-center">
+            <div className="origin-top scale-[0.80] mt-8">
+              <ProfessionalTemplate3
+                formData={{
+                  fullName,
+                  email,
+                  phoneNumber,
+                  location,
+                  linkedIn,
+                  portfolio,
+                  professionalSummary,
+                  skills,
+                  educations,
+                  workExperience,
+                  certifications,
+                  projects,
+                  languages,
+                }}
+              />
+            </div>
+          </div>
+        )}
       </section>
     </main>
     

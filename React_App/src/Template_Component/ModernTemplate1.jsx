@@ -1,7 +1,7 @@
 
-function ModernTemplate1() {
+function ModernTemplate1({ formData }) {
   return (
-    <div className="bg-white text-slate-900 transition-transform duration-500 hover:scale-105 w-[794px] min-h-[1123px] border border-gray-300 rounded-lg shadow-md">
+    <div className="bg-white text-slate-900 w-[794px] min-h-[1123px] border border-gray-300 rounded-lg shadow-md">
       
       {/* CV HEADER */}
       <header className="bg-[#080D2B] text-white px-8 py-10">
@@ -14,7 +14,7 @@ function ModernTemplate1() {
           {/* NAME AND TITLE */}
           <div>
             <h1 className="text-3xl font-bold">
-              Your Name
+              {formData?.fullName || "Your Name"}
             </h1>
 
             <p className="text-lg text-purple-300 mt-2">
@@ -26,13 +26,15 @@ function ModernTemplate1() {
 
         <div className="mt-6 flex flex-wrap gap-x-6 gap-y-3 text-sm text-gray-300">
 
-          <p>✉ yourname@email.com</p>
+          {formData?.email || "yourname@gmail.com"}
 
-          <p>☎ +234 800 000 0000</p>
+          {formData?.phoneNumber || "+234 800 000 0000"}
 
-          <p>📍 Lagos, Nigeria</p>
+          {formData?.location || "Lagos, Nigeria"}
 
-          <p>in LinkedIn Profile</p>
+          {formData?.linkedIn || "Linkedin Profile"}
+
+          <p>{formData?.portfolio || "Portfolio URL"}</p>
 
         </div>
       </header>
@@ -52,10 +54,13 @@ function ModernTemplate1() {
             </h2>
 
             <ul className="space-y-3 text-sm text-gray-700">
-              <li>Communication</li>
-              <li>Problem Solving</li>
-              <li>Team Collaboration</li>
-              <li>Project Management</li>
+              {formData?.skills?.length > 0 ? (
+                formData.skills.map((skill, index) => (
+                  <li key={index}>{skill}</li>
+                ))
+              ) : (
+                <li>Your skills will appear here</li>
+              )}
             </ul>
           </section>
 
@@ -66,19 +71,31 @@ function ModernTemplate1() {
               EDUCATION
             </h2>
 
-            <div className="mb-4">
-              <h3 className="font-semibold text-sm">
-                B.Sc. Computer Science
-              </h3>
+            {formData?.educations?.length > 0 ? (
+              formData.educations.map((education) => (
+                <div key={education.id} className="mb-4">
+                  <h3 className="font-semibold text-sm">
+                    {education.qualification}
+                  </h3>
 
-              <p className="text-sm text-gray-700">
-                University of Lagos
-              </p>
+                  <p className="text-sm text-gray-700">
+                    {education.name}
+                  </p>
 
-              <p className="text-xs text-gray-500 mt-1">
-                2022 – 2026
+                  <p className="text-sm text-gray-700">
+                    {education.fieldOfStudy}
+                  </p>
+
+                  <p className="text-xs text-gray-500 mt-1">
+                    {education.startDate} – {education.graduationDate}
+                  </p>
+                </div>
+              ))
+            ) : (
+              <p className="text-sm text-gray-500">
+                Your education details will appear here.
               </p>
-            </div>
+            )}
           </section>
 
 
@@ -88,19 +105,33 @@ function ModernTemplate1() {
               CERTIFICATIONS
             </h2>
 
-            <div className="mb-4">
-              <h3 className="font-semibold text-sm">
-                Web Development
-              </h3>
+            {formData?.certifications?.length > 0 ? (
+              formData.certifications.map((certification) => (
+                <div key={certification.id} className="mb-4">
+                  <h3 className="font-semibold text-sm">
+                    {certification.name}
+                  </h3>
 
-              <p className="text-sm text-gray-700">
-                Google Career Certificates
-              </p>
+                  <p className="text-sm text-gray-700">
+                    {certification.organisation}
+                  </p>
 
-              <p className="text-xs text-gray-500 mt-1">
-                2025
+                  <p className="text-xs text-gray-500 mt-1">
+                    {certification.issueDate}
+                  </p>
+
+                  {certification.credentialUrl && (
+                    <p className="text-sm text-purple-700">
+                      {certification.credentialUrl}
+                    </p>
+                  )}
+                </div>
+              ))
+            ) : (
+              <p className="text-sm text-gray-500">
+                Your certifications will appear here.
               </p>
-            </div>
+            )}
           </section>
 
 
@@ -110,10 +141,22 @@ function ModernTemplate1() {
               LANGUAGES
             </h2>
 
-            <ul className="space-y-3 text-sm text-gray-700">
-              <li>English — Fluent</li>
-              <li>French — Intermediate</li>
-            </ul>
+            {formData?.languages?.length > 0 ? (
+              formData.languages.map((language) => (
+                <div key={language.id} className="mb-3">
+                  <p className="text-sm font-semibold text-gray-800">
+                    {language.name}
+                  </p>
+                  <p className="text-sm text-gray-600">
+                    {language.proficiency}
+                  </p>
+                </div>
+              ))
+            ) : (
+              <p className="text-sm text-gray-500">
+                Your languages will appear here.
+              </p>
+            )}
           </section>
         </aside> 
 
@@ -130,13 +173,14 @@ function ModernTemplate1() {
               PROFESSIONAL SUMMARY
             </h2>
 
-            <p className="text-sm text-gray-700 leading-7">
-              A motivated and detail-oriented software developer
-              with a passion for building functional and user-friendly
-              applications. Skilled in problem-solving, teamwork and
-              developing creative solutions to technical challenges.
+            <p className="text-sm text-gray-700 leading-7 break-words">
+              {formData?.professionalSummary || "Your professional summary will appear here."}
             </p>
           </section>
+
+
+
+
 
 
           {/* Experience */}
@@ -145,26 +189,44 @@ function ModernTemplate1() {
               WORK EXPERIENCE
             </h2>
 
-            <div className="mb-6">
-              <h3 className="font-bold text-sm text-slate-900">
-                Frontend Developer
-              </h3>
+            {formData?.workExperience?.length > 0 ? (
+              formData.workExperience.map((experience) => (
+                <div key={experience.id} className="mb-6">
+                  <h3 className="font-bold text-sm text-slate-900">
+                    {experience.jobTitle} 
+                  </h3>
 
-              <p className="text-sm text-purple-700 font-medium mt-1">
-                ABC Technologies
+                  <p className="text-sm text-purple-700 font-medium mt-1">
+                    {experience.company}
+                  </p>
+
+                  <p className="text-xs text-gray-500 mt-1">
+                    {experience.employmentType} {experience.location}
+                  </p>
+
+                  <p className="text-xs text-gray-500 mt-1">
+                    {experience.location}
+                  </p>
+
+                  <p className="text-xs text-gray-500 mt-1">
+                    {experience.startDate} – {experience.endDate}
+                  </p>
+
+                  <p className="text-sm text-gray-700 leading-6 mt-3 whitespace-pre-line break-words">
+                    {experience.description}
+                  </p>
+                </div>
+              ))
+            ) : (
+              <p className="text-sm text-gray-500">
+                Your work experience will appear here.
               </p>
-
-              <p className="text-xs text-gray-500 mt-1">
-                January 2024 – Present
-              </p>
-
-              <ul className="list-disc pl-5 mt-3 space-y-2 text-sm text-gray-700">
-                <li>Developed responsive user interfaces using React.</li>
-                <li>Collaborated with team members to build web applications.</li>
-                <li>Improved application usability and performance.</li>
-              </ul>
-            </div>
+            )}
           </section>
+
+
+
+
 
 
           {/* Projects */}
@@ -173,36 +235,38 @@ function ModernTemplate1() {
               PROJECTS
             </h2>
 
-            <div className="mb-5">
-              <h3 className="font-semibold text-sm">
-                CV Builder Application
-              </h3>
+            {formData?.projects?.length > 0 ? (
+              formData.projects.map((project) => (
+                <div key={project.id} className="mb-5">
+                  <h3 className="font-semibold text-sm">
+                    {project.name}
+                  </h3>
 
-              <p className="text-sm text-gray-700 leading-6 mt-2">
-                Designed and developed a responsive CV builder
-                application that allows users to create and customize
-                professional CVs.
+                  <p className="text-sm text-gray-700 mt-1 break-words">
+                    {project.description}
+                  </p>
+
+                  <p className="text-sm text-gray-600 mt-2">
+                    **Technologies:** {project.technologies}
+                  </p>
+
+                  {project.projectUrl && (
+                    <p className="text-sm text-purple-700 mt-1">
+                      {project.projectUrl}
+                    </p>
+                  )}
+                </div>
+              ))
+            ) : (
+              <p className="text-sm text-gray-500">
+                Your projects will appear here.
               </p>
-            </div>
-
-            <div className="mb-5">
-              <h3 className="font-semibold text-sm">
-                Student Management System
-              </h3>
-
-              <p className="text-sm text-gray-700 leading-6 mt-2">
-                Built an application for organizing and managing
-                student records efficiently.
-              </p>
-            </div>
+            )}
           </section>
+          
         </div>
       </main> 
 
-
-
-
-     
     </div>
   );
 }

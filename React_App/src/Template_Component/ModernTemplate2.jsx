@@ -1,6 +1,6 @@
-function ModernTemplate2() {
+function ModernTemplate2({ formData }) {
   return (
-    <div className="bg-white text-gray-900 transition-transform duration-500 hover:scale-105 w-[794px] min-h-[1123px] grid grid-cols-[200px_1fr]">
+    <div className="bg-white text-gray-900 w-[794px] min-h-[1123px] grid grid-cols-[200px_1fr]">
 
       {/* LEFT SIDEBAR */}
       <aside className="bg-[#172B3A] text-white px-6 py-8">
@@ -17,12 +17,16 @@ function ModernTemplate2() {
           </h2>
 
           <div className="space-y-3 text-xs text-gray-300">
-            <p>Email address</p>
-            <p>Phone number</p>
-            <p>Location</p>
-            <p>LinkedIn / Portfolio</p>
+            {formData?.email || "yourname@gmail.com"}
+
+            {formData?.phoneNumber || "+234 800 000 0000"}
+
+            {formData?.location || "Lagos, Nigeria"}
+
+            {formData?.linkedIn || "Linkedin Profile"} / {formData?.portfolio || "Portfolio URL"}
           </div>
         </section>
+
 
 
         {/* EDUCATION */}
